@@ -1,31 +1,26 @@
-// app/page.js
 import React from 'react';
-import { ShoppingBag, Search, Menu } from 'lucide-react';
+import { ShoppingBag, Search, Menu, Image as ImageIcon } from 'lucide-react';
 
 const featuredProducts = [
   {
     id: 1,
     name: "Diamond Eternity Ring",
-    price: "$1,299",
-    image: "/api/placeholder/300/300"
+    price: "$1,299"
   },
   {
     id: 2,
     name: "Pearl Necklace",
-    price: "$899",
-    image: "/api/placeholder/300/300"
+    price: "$899"
   },
   {
     id: 3,
     name: "Sapphire Earrings",
-    price: "$749",
-    image: "/api/placeholder/300/300"
+    price: "$749"
   },
   {
     id: 4,
     name: "Gold Bracelet",
-    price: "$599",
-    image: "/api/placeholder/300/300"
+    price: "$599"
   }
 ];
 
@@ -56,25 +51,25 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <div className="relative pt-16">
-        <div className="absolute inset-0">
-          <img
-            className="w-full h-[600px] object-cover"
-            src="/api/placeholder/1920/600"
-            alt="Jewelry collection"
-          />
-          <div className="absolute inset-0 bg-gray-900 opacity-40"></div>
+        <div className="h-[600px] bg-gradient-to-r from-gray-800 to-gray-600 flex items-center justify-center">
+          <div className="flex flex-col items-center text-gray-300">
+            <ImageIcon className="h-16 w-16 mb-4" />
+            <p className="text-lg">Hero Image Here</p>
+          </div>
         </div>
-        <div className="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Timeless Elegance
-          </h1>
-          <p className="mt-6 text-xl text-white max-w-3xl">
-            Discover our curated collection of fine jewelry, where each piece tells a unique story of beauty and craftsmanship.
-          </p>
-          <div className="mt-10">
-            <a href="#" className="inline-block bg-white px-8 py-3 border border-transparent text-base font-medium text-gray-900 hover:bg-gray-100">
-              Shop Now
-            </a>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center px-4 sm:px-6 lg:px-8">
+            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+              Timeless Elegance
+            </h1>
+            <p className="mt-6 text-xl text-white max-w-3xl">
+              Discover our curated collection of fine jewelry, where each piece tells a unique story of beauty and craftsmanship.
+            </p>
+            <div className="mt-10">
+              <a href="#" className="inline-block bg-white px-8 py-3 border border-transparent text-base font-medium text-gray-900 hover:bg-gray-100">
+                Shop Now
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -85,12 +80,13 @@ export default function HomePage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {featuredProducts.map((product) => (
             <div key={product.id} className="group relative">
-              <div className="aspect-w-1 aspect-h-1 rounded-lg overflow-hidden">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-center object-cover group-hover:opacity-75"
-                />
+              <div className="aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden">
+                <div className="w-full h-full flex items-center justify-center">
+                  <div className="text-center text-gray-500">
+                    <ImageIcon className="h-8 w-8 mx-auto mb-2" />
+                    <p className="text-sm">Product Image</p>
+                  </div>
+                </div>
               </div>
               <div className="mt-4 flex justify-between">
                 <div>
@@ -107,27 +103,19 @@ export default function HomePage() {
       <div className="bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="relative rounded-lg overflow-hidden">
-              <img src="/api/placeholder/600/400" alt="Rings" className="w-full h-64 object-cover" />
-              <div className="absolute inset-0 bg-gray-900 opacity-40"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <h3 className="text-2xl font-bold text-white">Rings</h3>
+            {['Rings', 'Necklaces', 'Earrings'].map((category) => (
+              <div key={category} className="relative rounded-lg overflow-hidden">
+                <div className="h-64 bg-gradient-to-br from-gray-700 to-gray-500 flex items-center justify-center">
+                  <div className="text-center text-gray-300">
+                    <ImageIcon className="h-12 w-12 mx-auto mb-2" />
+                    <p className="text-lg">{category} Image</p>
+                  </div>
+                </div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <h3 className="text-2xl font-bold text-white">{category}</h3>
+                </div>
               </div>
-            </div>
-            <div className="relative rounded-lg overflow-hidden">
-              <img src="/api/placeholder/600/400" alt="Necklaces" className="w-full h-64 object-cover" />
-              <div className="absolute inset-0 bg-gray-900 opacity-40"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <h3 className="text-2xl font-bold text-white">Necklaces</h3>
-              </div>
-            </div>
-            <div className="relative rounded-lg overflow-hidden">
-              <img src="/api/placeholder/600/400" alt="Earrings" className="w-full h-64 object-cover" />
-              <div className="absolute inset-0 bg-gray-900 opacity-40"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <h3 className="text-2xl font-bold text-white">Earrings</h3>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
